@@ -8,20 +8,20 @@ public class LargestProductInASeries {
         for(int count = 0, limit=13, i=0; i<intArr.length; i++){
             if(intArr[i]==0){
                 count =0;
-                limit=13;
                 mult = 1;
             }
             else if(count<limit){
                 mult *= intArr[i];
                 count++;
                 if(count==limit){
-                    res = res>mult ? res: mult;
+                    res = Math.max(res, mult);
                 }
             } else{
                 mult = mult * intArr[i] / intArr[i-13];
-                res = res>mult ? res: mult;
+                res = Math.max(res, mult);
             }
         }
         System.out.println(res);
+        //23514624000
     }
 }
